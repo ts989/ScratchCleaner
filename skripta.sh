@@ -18,7 +18,7 @@ done
 
 #Salje mail/brise
 if [[ -s /scratch/for_del ]] ; then 
-        cat /scratch/for_del | mail -s "Files for deletion on '$(hostname)'" "neki_mail@srce.hr"  
+        cat /scratch/for_del | mail -s "Files for deletion on '$(hostname)'" "isabella-dezurni@srce.hr"  
         #cat /scratch/for_del | awk '{print $2}' | xargs rm -rf  
         rm -f /scratch/for_del  
 else 
