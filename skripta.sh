@@ -29,7 +29,7 @@ rm -f 1mon
 #salje mail/brise
 if [[ -s /scratch/for_del ]] ; then 
         cat /scratch/for_del | mail -s "Files for deletion on '$(hostname)'" "isabella-dezurni@srce.hr"
-	cat /scratch/rescue_me | mail -s "Transfer files before bude prekasno '$(hostname)'" "isabella-dezurni@srce.hr"  
+	cat /scratch/rescue_me | mail -s "Files for rescuing on '$(hostname)'" "isabella-dezurni@srce.hr"  
         #cat /scratch/for_del | awk '{print $2}' | xargs rm -rf  
         rm -f /scratch/for_del /scratch/rescue_me 
 else 
