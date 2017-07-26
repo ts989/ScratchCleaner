@@ -1,0 +1,1 @@
+0 12 * * * root /usr/local/libexec/scratch-cleaner.sh >> /var/log/scratch-cleaner.log 2>&1
