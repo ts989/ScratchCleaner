@@ -8,14 +8,14 @@ sed -i '/lost+found/d' /scratch/for_del
 
 #provjerava datoteke oblika job-id.brojevi.slova.q 
 for f in $(ls /scratch/ | egrep [0-9]+.[0-9]+.[a-z]+.q | sed s/[.].*//g | sort -n | uniq); do 
-        if [[ $(qstat -u "*" | grep $f | wc -l) != 0 || $(lsof | grep ${f} | wc -l) != 0 ]]; then 
+        if [[ $(qstat -u "*" | grep $f | wc -l) != 0 || $(/usr/sbin/lsof | grep ${f} | wc -l) != 0 ]]; then 
                 sed -i '/'${f}'.*/d' /scratch/for_del 
         fi 
 done 
 
 #provjerava datoteke koje nisu gore navedenog oblika
 for f in $(ls /scratch/ | egrep -v [0-9]+.[0-9]+.[a-z]+.q); do  
-        if [[ $(lsof | grep ${f} | wc -l) != 0 ]]; then  
+        if [[ $(/usr/sbin/lsof | grep ${f} | wc -l) != 0 ]]; then  
                 sed -i '/'${f}'/d' /scratch/for_del  
         fi  
 done 
